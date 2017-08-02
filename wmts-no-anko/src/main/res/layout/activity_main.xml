@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="mil.coe_v3.emp3.wmts_no_anko.MainActivity">
+
+<data>
+
+    <variable
+        name="cwms"
+        type="mil.coe_v3.emp3.wmts_no_anko.MainActivity" />
+</data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/WmsParametersLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/UrlText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Service"
+                android:text="@string/UrlDefault" />
+
+            <EditText
+                android:id="@+id/LayerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Layer"
+                android:text="@string/sample" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alignmentMode="alignBounds"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:onClick="@{cwms::onClickCancel}"
+                    android:text="@string/CancelButton" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:onClick="@{cwms::onClickOK}"
+                    android:text="@string/OKButton" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:onClick="@{cwms::onClickZoomOut}"
+                    android:text="@string/ZoomOut" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:onClick="@{cwms::onClickZoomIn}"
+                    android:text="@string/ZoomIn" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="2"
+                    android:onClick="@{cwms::onClickPanLeft}"
+                    android:text="@string/PanLeft" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="2"
+                    android:onClick="@{cwms::onClickPanRight}"
+                    android:text="@string/PanRight" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="3"
+                    android:onClick="@{cwms::onClickTiltUp}"
+                    android:text="@string/TiltUp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="3"
+                    android:onClick="@{cwms::onClickTiltDown}"
+                    android:text="@string/TiltDown" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_row="4"
+                    android:onClick="@{cwms::onClickRollCCW}"
+                    android:text="@string/rollCCW" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_row="4"
+                    android:onClick="@{cwms::onClickRollCW}"
+                    android:text="@string/rollCW" />
+            </GridLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <mil.emp3.api.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:map_engine_apk_name="mil.emp3.worldwind"
+        app:map_engine_name="mil.emp3.worldwind.MapInstance" />
+</LinearLayout>
+</layout>
+

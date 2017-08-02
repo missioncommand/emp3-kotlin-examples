@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/emp3-kotlin-examples.iml" filepath="$PROJECT_DIR$/emp3-kotlin-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/emp3-kotlin-examples.iml" filepath="$PROJECT_DIR$/.idea/emp3-kotlin-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wmts-no-anko/wmts-no-anko.iml" filepath="$PROJECT_DIR$/wmts-no-anko/wmts-no-anko.iml" />
+    </modules>
+  </component>
+</project>
