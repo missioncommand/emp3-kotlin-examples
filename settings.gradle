@@ -1,1 +1,1 @@
-include ':wmts-no-anko'
+include ':wmts-no-anko', ':geojson-with-coroutines'

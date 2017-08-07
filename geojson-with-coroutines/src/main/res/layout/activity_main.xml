@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="mil.coe_v3.emp3.geojson_with_coroutines.MainActivity">
+    <data>
+        <variable name="gwc" type = "mil.coe_v3.emp3.geojson_with_coroutines.MainActivity"/>
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/geojsonfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Service"
+            android:spinnerMode="dropdown"
+            style="@style/Widget.AppCompat.Spinner.Underlined" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CancelButton"
+            android:onClick="@{gwc::onClickCancel}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/OKButton"
+            android:onClick="@{gwc::onClickOK}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AllButton"
+            android:onClick="@{gwc::onClickAll}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ClearButton"
+            android:onClick="@{gwc::onClickClear}"/>
+    </LinearLayout>
+
+
+    <mil.emp3.api.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:map_engine_apk_name="mil.emp3.worldwind"
+        app:map_engine_name="mil.emp3.worldwind.MapInstance" />
+
+</LinearLayout>
+</layout>

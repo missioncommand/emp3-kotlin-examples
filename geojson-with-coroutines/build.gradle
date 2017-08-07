@@ -8,9 +8,9 @@ android {
 
 
     defaultConfig {
-        applicationId "mil.coe_v3.emp3.wmts_no_anko"
+        applicationId "mil.coe_v3.emp3.geojson_with_coroutines"
         minSdkVersion 23
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -23,8 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     dataBinding {
-        enabled = true
+        enabled true
     }
 }
 
@@ -34,6 +35,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     kapt "com.android.databinding:compiler:$android_plugin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.17"
     implementation ("mil.army.missioncommand:emp3-android-sdk-view:$project.version") { transitive = true }
     implementation ("mil.army.missioncommand:emp3-android-sdk-core:$project.version@aar") { transitive = true }
     // Compile in the map engines rather than load it from the APK

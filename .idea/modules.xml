@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/emp3-kotlin-examples.iml" filepath="$PROJECT_DIR$/emp3-kotlin-examples.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/emp3-kotlin-examples.iml" filepath="$PROJECT_DIR$/.idea/emp3-kotlin-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/geojson-with-coroutines/geojson-with-coroutines.iml" filepath="$PROJECT_DIR$/geojson-with-coroutines/geojson-with-coroutines.iml" />
       <module fileurl="file://$PROJECT_DIR$/wmts-no-anko/wmts-no-anko.iml" filepath="$PROJECT_DIR$/wmts-no-anko/wmts-no-anko.iml" />
     </modules>
   </component>
