@@ -11,6 +11,7 @@ import android.widget.Spinner
 import kotlinx.coroutines.experimental.*
 import mil.coe_v3.emp3.geojson_with_coroutines.databinding.ActivityMainBinding
 import mil.emp3.api.Overlay
+import mil.emp3.api.abstracts.Feature
 import mil.emp3.api.enums.MapStateEnum
 import mil.emp3.api.events.MapStateChangeEvent
 import mil.emp3.api.events.MapUserInteractionEvent
@@ -23,6 +24,7 @@ import mil.emp3.json.geoJson.GeoJsonParser
 import org.cmapi.primitives.IGeoAltitudeMode
 import java.io.IOException
 import java.io.InputStream
+import kotlin.coroutines.experimental.buildSequence
 
 class MainActivity : AppCompatActivity() {
 
@@ -84,6 +86,16 @@ class MainActivity : AppCompatActivity() {
             println("in feature  ${feature.name}")
         }
         stream.close()
+    }
+
+    fun stations(resourceId : Int) = buildSequence {
+        val stream = applicationContext.resources.openRawResource(resourceId)
+        val featureList = GeoJsonParser.parse(stream)
+        stream.close()
+        for (feature in featureList) {
+            println("in feature  ${feature.name}")
+            yield(feature)
+        }
     }
 
     // start all asynchronously and wait for all
@@ -168,14 +180,18 @@ class MainActivity : AppCompatActivity() {
                     camera.altitude = 2e6
                 }
                 "stations" -> {
-                    val stream = applicationContext.resources.openRawResource(R.raw.stations)
-                    val featureList = GeoJsonParser.parse(stream)
-                    for (feature in featureList) {
-                        this@MainActivity.overlay.addFeature(feature, true)
+                    var latitude : Double = 0.0
+                    var longitude : Double = 0.0
+                    var count : Double = 0.0
+                    stations(R.raw.stations).forEach {
+                        this@MainActivity.overlay.addFeature(it, true)
+                        val feature = it as Feature<*>
+                        latitude += feature.position.latitude
+                        longitude += feature.position.longitude
+                        count++
                     }
-                    stream.close()
-                    camera.latitude = 38.7
-                    camera.longitude = -77.2
+                    camera.latitude = latitude/count
+                    camera.longitude = longitude/count
                     camera.altitude = 1e5
                 }
             }
